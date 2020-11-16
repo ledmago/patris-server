@@ -9,7 +9,6 @@ const userSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     country: { type: String, required: false },
-    city: { type: String, required: false },
     university: { type: String, required: false },
     grade: { type: String, required: false },
 });

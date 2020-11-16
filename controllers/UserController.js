@@ -67,13 +67,12 @@ const registerUser = async (req, res) => {
             'password',
             'country',
             'university',
-            'city',
             'grade'
         ];
 
         if (!checkMissingParams(params, req, res)) return;
 
-        let { firstName, lastName, email, password, city, country, university, grade } = req.body;
+        let { firstName, lastName, email, password, country, university, grade } = req.body;
         firstName = CapitalizeString(firstName);
         lastName = CapitalizeString(lastName);
         email = email.toLowerCase();
@@ -94,7 +93,6 @@ const registerUser = async (req, res) => {
                 hash: bcrypt.hashSync(password, 12),
                 country,
                 university,
-                city,
                 grade
             });
 
