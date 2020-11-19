@@ -2,10 +2,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const route = express.Router();
-const { login } = require('../Controllers/UserController');
+const { getVideo } = require('../Controllers/UserController');
 
-route.post('/', async (req, res) => {
-    login(req, res);
+route.get('/', async (req, res) => {
+    getVideo(req, res);
 });
 
 module.exports = route;

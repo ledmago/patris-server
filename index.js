@@ -20,17 +20,25 @@ app.use(function (req, res, next) {
 
 
 app.use((req, res, next) => {
+
+    req.body = { ...req.body, ...req.query }
     if (req.body.token) {
         req.cookies.token = req.body.token;
     }
     next();
 })
+
+
 // -- ROUTES -- //
 // USER
 app.use('/api/registeruser', require('./routes/RegisterUser'));
 app.use('/api/logout', require('./routes/LogOut'));
 app.use('/api/login', require('./routes/Login'));
-
+app.use('/api/user/getvideo', require('./routes/GetVideos'));
+app.use('/api/user/getallvideos', require('./routes/GetAllVideos'));
+app.use('/api/user/getcategory', require('./routes/GetCategory'));
+app.use('/api/user/getallcategories', require('./routes/GetAllCategories'));
+app.use('/api/user/getallvideoparts', require('./routes/GetAllVideoParts'));
 
 // ADMIN ICIN
 app.use('/api/adminlogin', require('./routes/Admin/AdminLogin'));
